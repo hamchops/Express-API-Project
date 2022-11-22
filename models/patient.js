@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Patient.belongsTo(models.Client, {
         foreignKey: 'owner_id',
-        as: 'twerts',
+        as: '',
         onDelete: 'cascade',
         onUpdate: 'cascade'
       })
@@ -34,6 +34,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Patient',
+    tableName: 'patient'
   });
   return Patient;
 };

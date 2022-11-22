@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
       vaccinehistory.belongsTo(models.patient, {
         foreignKey: 'owner_id',
         as: 'twerts',
-        onDelete: 'cascade',
-        onUpdate: 'cascade'
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
       })
     }
   }
@@ -26,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'vaccinehistory',
+    tableName: 'vaccinehistory'
   });
   return vaccinehistory;
 };
