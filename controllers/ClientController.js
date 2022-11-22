@@ -9,10 +9,10 @@ const GetFiles = async (req, res) => {
     }
 }
 
-const GetClientPets = async (req, res) => {
+const GetClientProfile = async (req, res) => {
     try {
-        const clientAndPatient = await Client.findByPk(req.params.user_id, {
-            include: [{model: patient, as: 'patients'}]
+        const clientAndPatient = await Client.findByPk(req.params.client_id, {
+            include: [{model: Patient, as: 'patient'}]
         })
         res.send(clientAndPatient)
     } catch (error) {
@@ -22,5 +22,5 @@ const GetClientPets = async (req, res) => {
 
 module.exports = {
     GetFiles,
-    GetClientPets
+    GetClientProfile
 }
