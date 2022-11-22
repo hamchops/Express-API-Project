@@ -12,7 +12,7 @@ const GetFiles = async (req, res) => {
 const GetClientPets = async (req, res) => {
     try {
         const clientAndPatient = await Client.findByPk(req.params.user_id, {
-            include: [{model: Patient, as: 'patients'}]
+            include: [{model: patient, as: 'patients'}]
         })
         res.send(clientAndPatient)
     } catch (error) {

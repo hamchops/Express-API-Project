@@ -12,8 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       vaccinehistory.belongsTo(models.patient, {
-        foreignKey: 'owner_id',
-        as: 'twerts',
+        foreignKey: 'patient_id',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       })

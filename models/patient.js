@@ -11,15 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Patient.belongsTo(models.Client, {
-        foreignKey: 'owner_id',
-        as: '',
+      Patient.belongsTo(models.client, {
+        foreignKey: 'client_id',
         onDelete: 'cascade',
         onUpdate: 'cascade'
       })
-      Patient.hasMany(models.VaccineHistory, {
-        foreignKey: 'patient_id',
-        as: 'twerts',
+      Patient.hasMany(models.vaccinehistory, {
+        foreignKey: 'vaccinehistory_id',
         onDelete: 'cascade',
         onUpdate: 'cascade'
       })
@@ -33,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     weight: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'Patient',
+    modelName: 'patient',
     tableName: 'patient'
   });
   return Patient;

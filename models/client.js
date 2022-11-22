@@ -10,15 +10,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
-      Client.hasMany(models.Patients,{
-        foreignKey: 'owner_id',
-        as: 'twerts',
+      Client.hasMany(models.patient,{
+        foreignKey: 'client_id',
+        // sourceKey: 'client_id',
         onDelete: 'cascade',
         onUpdate: 'cascade'
       })
-      Client.hasMany(models.VaccineHistory, {
-        foreignKey: 'owner_id',
+      Client.hasMany(models.vaccinehistory, {
+        foreignKey: 'vaccinehistory_id',
         onDelete: 'cascade',
         onUpdate: 'cascade'
       })
@@ -51,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
   },
   {
     sequelize,
-    modelName: 'Client',
+    modelName: 'client',
     tableName: 'client'
   });
   return Client;
